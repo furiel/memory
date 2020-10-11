@@ -7,9 +7,23 @@
 (defn get-app-element []
   (gdom/getElement "app"))
 
+(defn card [content]
+  [:div.tile.is-child.box
+   [:p content]])
+
+(defn card-row [row]
+  (into [:div.tile.is-parent.is-vertical] (map card row)))
+
+(defn board [items]
+  (let [partitions (partition 4 items)
+        rows (map card-row partitions)]
+    (into [:div.tile.is-ancestor.has-text-centered
+           rows])))
+
 (defn memory []
   [:div
-   [:h1 "Memory game"]])
+   [:h1.title "Memory game"]
+   (board (map str (range 1 17)))])
 
 (defn mount [el]
   (rdom/render [memory] el))
