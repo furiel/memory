@@ -1,0 +1,4 @@
+{
+ :target-dir "resources"
+ :open-file-command "emacsclient"
+}
