@@ -1,2 +1,7 @@
-/* some style */
+.card-item {
+    background-color: BurlyWood !important;
+}
 
+.card-item:hover {
+    background-color: gray !important;
+}

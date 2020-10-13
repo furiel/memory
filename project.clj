@@ -8,7 +8,9 @@
 
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [org.clojure/clojurescript "1.10.773"]
-                 [reagent "0.10.0" ]]
+                 [reagent "0.10.0" ]
+                 [re-frisk "1.3.4"]
+                 [re-frame "1.1.1"]]
 
   :source-paths ["src"]
 
@@ -22,4 +24,6 @@
 
                    :resource-paths ["target"]
                    ;; need to add the compiled assets to the :clean-targets
-                   :clean-targets ^{:protect false} ["target"]}})
+                   :clean-targets ^{:protect false} ["target"]}}
+  :cljsbuild {:builds [{:id "min"
+                        :closure-defines {goog.DEBUG false}}]})
